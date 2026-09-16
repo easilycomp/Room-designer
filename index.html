@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f1eb">
+  <title>Atelier | Room designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section class="welcome-screen" id="welcomeScreen" aria-labelledby="welcomeTitle">
+      <div class="welcome-brand"><span class="brand-mark"><i></i><i></i><i></i></span><span>atelier</span></div>
+      <div class="welcome-content">
+        <span class="eyebrow" id="welcomeEyebrow">ROOM DESIGN STUDIO</span>
+        <h1 id="welcomeTitle">Design a room that feels like you.</h1>
+        <p id="welcomeCopy">Shape the space, place every piece, and make it yours.</p>
+        <div class="welcome-actions">
+          <label class="language-picker"><span id="languageLabel">Language</span><select id="languageSelect" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+            <option value="cs">Čeština</option>
+            <option value="zh">中文</option>
+            <option value="es">Español</option>
+          </select></label>
+          <button class="primary-button welcome-enter" id="enterStudio"><span id="enterLabel">Enter the studio</span> <span>→</span></button>
+        </div>
+      </div>
+      <div class="welcome-footer"><span id="welcomeFooter">Your room. Your point of view.</span><span>01 / 01</span></div>
+    </section>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Atelier home">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span>atelier</span>
+      </a>
+      <div class="project-name">
+        <span class="eyebrow">PROJECT</span>
+        <strong>Sunlit living room</strong>
+        <button class="icon-button" aria-label="Edit project name" title="Edit project name">✎</button>
+      </div>
+      <div class="top-actions">
+        <span class="saved-status"><span class="status-dot"></span><span id="saveStatus">Saved just now</span></span>
+        <button class="outline-button" id="shareButton"><span>↗</span> Share</button>
+        <button class="primary-button" id="saveButton"><span>↓</span> Save design</button>
+        <button class="avatar" id="avatarButton" aria-label="Sign in">AM</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar" aria-label="Design controls">
+        <div class="sidebar-heading">
+          <div>
+            <span class="eyebrow">ROOM KIT</span>
+            <h1>Shape your space</h1>
+          </div>
+          <button class="icon-button close-sidebar" aria-label="Collapse panel">‹</button>
+        </div>
+
+        <nav class="mode-tabs" aria-label="Design modes">
+          <button class="mode-tab active" data-mode="furniture">Furniture</button>
+          <button class="mode-tab" data-mode="finish">Finishes</button>
+          <button class="mode-tab" data-mode="details">Details</button>
+        </nav>
+
+        <section class="control-section" id="furniturePanel">
+          <div class="section-label"><span>Pieces</span><span class="count">06</span></div>
+          <div class="furniture-grid">
+            <button class="furniture-card" data-piece="sofa"><span class="piece-icon sofa-icon"></span><span>Sofa</span><small>2.4 × 0.9 m</small></button>
+            <button class="furniture-card" data-piece="chair"><span class="piece-icon chair-icon"></span><span>Lounge chair</span><small>0.8 × 0.8 m</small></button>
+            <button class="furniture-card" data-piece="table"><span class="piece-icon table-icon"></span><span>Coffee table</span><small>1.1 × 0.6 m</small></button>
+            <button class="furniture-card" data-piece="console"><span class="piece-icon console-icon"></span><span>Console</span><small>1.6 × 0.4 m</small></button>
+            <button class="furniture-card" data-piece="plant"><span class="piece-icon plant-icon"></span><span>Plant</span><small>0.5 × 0.5 m</small></button>
+            <button class="furniture-card" data-piece="rug"><span class="piece-icon rug-icon"></span><span>Rug</span><small>2.0 × 3.0 m</small></button>
+          </div>
+        </section>
+
+        <section class="control-section finish-panel" id="finishPanel" hidden>
+          <div class="section-label"><span>Wall color</span><span class="count">04</span></div>
+          <div class="swatches" aria-label="Wall color choices">
+            <button class="swatch active" data-color="#e8e0d5" style="--swatch:#e8e0d5" aria-label="Warm linen"></button>
+            <button class="swatch" data-color="#d9ddd4" style="--swatch:#d9ddd4" aria-label="Sage mist"></button>
+            <button class="swatch" data-color="#ded6dc" style="--swatch:#ded6dc" aria-label="Soft mauve"></button>
+            <button class="swatch" data-color="#d8d0c1" style="--swatch:#d8d0c1" aria-label="Clay"></button>
+          </div>
+          <div class="section-label finish-label"><span>Floor finish</span><span class="count">03</span></div>
+          <div class="floor-options">
+            <button class="floor-option active" data-floor="oak"><span class="floor-preview oak"></span><span>Natural oak</span></button>
+            <button class="floor-option" data-floor="herringbone"><span class="floor-preview herringbone"></span><span>Herringbone</span></button>
+            <button class="floor-option" data-floor="terrazzo"><span class="floor-preview terrazzo"></span><span>Terrazzo</span></button>
+          </div>
+        </section>
+
+        <section class="control-section details-panel" id="detailsPanel" hidden>
+          <div class="section-label"><span>Room dimensions</span><span class="count">m</span></div>
+          <label class="range-row"><span>Length</span><div class="dimension-value"><output id="widthValue">5.4 m</output><input class="dimension-number" id="widthNumber" type="number" min="4" max="7" step="0.1" value="5.4" aria-label="Room length in metres"></div><input id="widthRange" type="range" min="4" max="7" step="0.1" value="5.4"></label>
+          <label class="range-row"><span>Width</span><div class="dimension-value"><output id="depthValue">4.8 m</output><input class="dimension-number" id="depthNumber" type="number" min="3.5" max="6" step="0.1" value="4.8" aria-label="Room width in metres"></div><input id="depthRange" type="range" min="3.5" max="6" step="0.1" value="4.8"></label>
+          <label class="range-row"><span>Height</span><div class="dimension-value"><output id="heightValue">2.8 m</output><input class="dimension-number" id="heightNumber" type="number" min="2.4" max="4.2" step="0.1" value="2.8" aria-label="Room height in metres"></div><input id="heightRange" type="range" min="2.4" max="4.2" step="0.1" value="2.8"></label>
+          <div class="section-label finish-label"><span>Lighting</span><span class="count">02</span></div>
+          <label class="toggle-row"><span><b>Natural light</b><small>Soft daylight from the windows</small></span><input type="checkbox" id="lightToggle" checked><i></i></label>
+          <label class="toggle-row"><span><b>Grid lines</b><small>Show placement guide</small></span><input type="checkbox" id="gridToggle" checked><i></i></label>
+        </section>
+
+        <div class="sidebar-footer">
+          <button class="reset-button" id="resetButton">↺ <span>Reset room</span></button>
+          <span class="shortcut">⌘ K</span>
+        </div>
+      </aside>
+
+      <section class="canvas-area" aria-label="Room canvas">
+        <div class="canvas-toolbar">
+          <div class="breadcrumb"><button class="projects-link" id="projectsButton">My projects</button><b>/</b><strong id="activeProjectName">Sunlit living room</strong></div>
+          <div class="canvas-tools">
+            <button class="tool-button active" data-view="3d" title="3D view">◇ <span>3D</span></button>
+            <button class="tool-button" data-view="plan" title="Top down view">□ <span>Plan</span></button>
+            <span class="toolbar-divider"></span>
+            <button class="tool-icon" id="zoomOut" aria-label="Zoom out" title="Zoom out">−</button>
+            <span class="zoom-value" id="zoomValue">100%</span>
+            <button class="tool-icon" id="zoomIn" aria-label="Zoom in" title="Zoom in">+</button>
+            <button class="tool-icon delete-tool" id="deleteSelected" aria-label="Delete selected item" title="Delete selected item" disabled>⌫</button>
+            <button class="tool-icon" id="fullscreenButton" aria-label="Fullscreen" title="Fullscreen">⛶</button>
+          </div>
+        </div>
+
+        <div class="scene-wrap" id="sceneWrap">
+          <div class="scene" id="scene">
+            <div class="back-wall"></div>
+            <div class="left-wall"></div>
+            <div class="ceiling"></div>
+            <div class="window"><span class="window-glow"></span><span class="window-frame vertical"></span><span class="window-frame horizontal"></span><span class="curtain left"></span><span class="curtain right"></span></div>
+            <div class="art"><span></span><i></i></div>
+            <div class="floor" id="floorSurface"><span class="floor-shadow"></span></div>
+            <div class="room-rug furniture-item rug" data-id="rug" style="left:35%;top:61%;"><span></span></div>
+            <div class="furniture-item sofa" data-id="sofa" style="left:37%;top:54%;"><span class="cushion one"></span><span class="cushion two"></span><span class="sofa-arm left"></span><span class="sofa-arm right"></span></div>
+            <div class="furniture-item table" data-id="table" style="left:53%;top:69%;"><span></span><i class="leg one"></i><i class="leg two"></i></div>
+            <div class="furniture-item chair" data-id="chair" style="left:71%;top:53%;"><span></span><i></i></div>
+            <div class="furniture-item plant" data-id="plant" style="left:79%;top:70%;"><span class="leaves"></span><span class="pot"></span></div>
+            <div class="furniture-item console" data-id="console" style="left:13%;top:62%;"><span></span><i></i><b></b></div>
+            <span class="dimension-label length-label">5.4 m length</span>
+            <span class="dimension-label width-label">4.8 m width</span>
+            <span class="dimension-label height-label">2.8 m height</span>
+            <div class="selection-hint">Drag pieces to place them</div>
+            <div class="orbit-hint">Drag empty space to orbit room</div>
+          </div>
+        </div>
+        <footer class="canvas-footer"><span><b class="tip-icon">i</b> Select a piece to adjust its position</span><span><kbd>⌘</kbd> + <kbd>scroll</kbd> to zoom</span></footer>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status">Design saved to your projects</div>
+    <div class="auth-overlay" id="authOverlay" hidden>
+      <section class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="auth-close" id="authClose" aria-label="Close sign in dialog">×</button>
+        <span class="eyebrow">WELCOME TO ATELIER</span>
+        <h2 id="authTitle">Sign in to your studio</h2>
+        <p class="auth-copy">Save your rooms, return to your ideas, and keep designing across sessions.</p>
+        <form id="signInForm">
+          <label class="auth-field"><span>Email address</span><input id="emailInput" type="email" placeholder="you@example.com" autocomplete="email" required></label>
+          <label class="auth-field"><span>Password</span><input id="passwordInput" type="password" placeholder="At least 6 characters" autocomplete="current-password" minlength="6" required></label>
+          <p class="auth-error" id="authError" role="alert"></p>
+          <button class="primary-button auth-submit" id="authSubmit" type="submit">Sign in <span>→</span></button>
+        </form>
+        <button class="auth-switch" id="authModeToggle" type="button">Need an account? Create one</button>
+        <p class="auth-note">Your account and projects are stored by the Atelier server.</p>
+      </section>
+    </div>
+    <div class="projects-overlay" id="projectsOverlay" hidden>
+      <section class="projects-modal" role="dialog" aria-modal="true" aria-labelledby="projectsTitle">
+        <button class="auth-close" id="projectsClose" aria-label="Close projects">×</button>
+        <span class="eyebrow">YOUR STUDIO</span>
+        <h2 id="projectsTitle">Saved projects</h2>
+        <p class="auth-copy">Pick up where you left off.</p>
+        <div class="project-list" id="projectList"></div>
+      </section>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
