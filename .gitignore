@@ -1,0 +1,6 @@
+# Runtime SQLite database — created/updated by the server at boot and on every
+# sign-up, save and delete. It is intentionally not tracked here (it holds local
+# accounts and saved rooms, not source).
+/atelier.db
+
+__pycache__/
